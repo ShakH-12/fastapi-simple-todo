@@ -24,7 +24,7 @@ class TaskService:
 		if not task:
 			raise HTTPException(
 			    status_code=404,
-			    detail=f"Task with id {data.task_id} not found"
+			    detail=f"Task with id {task_id} not found"
 			)
 		return TaskResponse.model_validate(task)
 	
@@ -37,7 +37,7 @@ class TaskService:
 		if not task:
 			raise HTTPException(
 			    status_code=404,
-			    detail=f"Task with id {data.task_id} not found"
+			    detail=f"Task with id {task_id} not found"
 			)
 		task = await self.repository.update(data)
 		return TaskResponse.model_validate(task)
